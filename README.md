@@ -47,3 +47,23 @@ module.exports = {
   }
 }
 ```
+##### 7. 样式文件打包
+- [`style-loader`](https://www.webpackjs.com/loaders/style-loader/)
+- [`css-loader`](https://www.webpackjs.com/loaders/css-loader/)
+- [`less-loader`](https://www.webpackjs.com/loaders/less-loader/)
+- [`sass-loader`](https://www.webpackjs.com/loaders/sass-loader/)
+- [`postcss-loader`](https://www.webpackjs.com/loaders/postcss-loader/)
+- [`autoprefixer`](https://www.npmjs.com/package/autoprefixer)
+```
+// wepack.config.js  ---引用postcss-loader
+{
+  test: /\.scss$/,
+  use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+}
+// postcss.config.js   ---postcss-loader引用插件autoprefixer
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+```
