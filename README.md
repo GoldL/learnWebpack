@@ -66,4 +66,25 @@ module.exports = {
     require('autoprefixer')
   ]
 }
+// wepack.config.js ---scss文件用又引用了其他scss文件,importLoader: 2按顺序执行
+test: /\.scss   $/,
+use: ['style-loader', 
+{
+loader: 'css-loader',
+options: {
+  importLoaders: 2 // 关键代码
+},
+'sass-loader',
+'postcss-loader']
+// wepack.config.js  ---css模块化
+test: /\.scss   $/,
+use: ['style-loader', 
+{
+loader: 'css-loader',
+options: {
+  importLoaders: 2,
+  modules: true // 关键代码
+},
+'sass-loader',
+'postcss-loader']
 ```
